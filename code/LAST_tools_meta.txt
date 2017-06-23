@@ -1,9 +1,13 @@
 
+lasheight -i "E:\lidar\discrete\hf\2012\gliht\data\cloudcompare_clip\2016_HARV_Megaplot_ clip.las" -drop_classification 7 -replace_z -odir "C:\Users\Peter.Boucher001\Desktop" -olas
+
+las2las -i filename -rescale 0.01 0.01 0.01 -o filename_rescale
+
 # ground and understory -b by keeping only returns 2 and 3
-las2dem -i "C:\Users\EG\Documents\NEON_DataInstitute\Project\data\2016_HARV_height_normalized_no_noise.las" -elevation -otif -keep_return 2 3 -o understory.tif
+las2dem -i 2016_HARV_height_normalized_no_noise.las -elevation -otif -o understory.tif
 
 # ground and understory -b by dropping return 1
-las2dem -i "C:\Users\EG\Documents\NEON_DataInstitute\Project\data\2016_HARV_height_normalized_no_noise.las" -elevation -otif -drop_return 1 -o dropFirst.tif 
+las2dem -i 2016_HARV_height_normalized_no_noise.las -elevation -otif -drop_return 1 -o dropFirst.tif 
 
 # only ground
 las2dem -i "C:\Users\EG\Documents\NEON_DataInstitute\Project\data\2016_HARV_height_normalized_no_noise.las" -elevation -otif -keep_class 2 -o ground.tif -kill 100 
